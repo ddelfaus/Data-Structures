@@ -10,10 +10,16 @@ class Queue:
         self.storage = DoublyLinkedList()
 
     def enqueue(self, value):
-        pass
+        self.storage.add_to_tail(value)
+        self.size += 1
 
     def dequeue(self):
-        pass
+        if self.len() > 0:
+            val = self.storage.remove_from_head()
+            self.size -= 1
+            return val
+        else:
+            return None
 
     def len(self):
-        pass
+        return self.size

@@ -140,6 +140,7 @@ class BinarySearchTree:
             if current_node.right:
                  # add children of node to queue
                 queue.enqueue(current_node.right)
+             # node = pop head of queue   
             current_node = queue.dequeue()
 
 
@@ -150,15 +151,25 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     #  Iterative DFT
-    # create stack
-    # add root to stack
-    # while stack is not empty
-    # node = pop top of stack
-    # DO THE THING!!! (print)
-    # add children of node to stack
+    
     def dft_print(self, node):
-        pass
-
+        # create stack
+        stack = Stack()
+        # add root to stack
+        current_node = node
+        # while stack is not empty
+        while current_node:
+     
+         
+            # DO THE THING!!! (print)
+            print(current_node.value)
+            # add children of node to stack
+            if current_node.left:
+                stack.push(current_node.left)
+            if current_node.right:
+                stack.push(current_node.right)
+            # node = pop top of stack    
+            current_node = stack.pop()
     # STRETCH Goals -------------------------
     # Note: Research may be required
 
@@ -179,3 +190,6 @@ bfrasa.insert(2)
 bfrasa.insert(3)
 
 bfrasa.bft_print(bfrasa)
+
+
+bfrasa.dft_print(bfrasa)
